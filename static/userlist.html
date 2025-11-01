@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Grocery List</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { font-family:'Segoe UI', sans-serif; background:#f8f9fa; }
+  header { background:#28a745; color:white; padding:15px; position:sticky; top:0; z-index:10; }
+  .container { padding:30px 15px; }
+  .item-card { background:white; padding:20px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); margin-bottom:15px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  .item-card:hover { transform: translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.2); }
+  .item-type { font-size:0.9rem; color:#555; }
+</style>
+</head>
+<body>
+<header class="d-flex justify-content-between align-items-center">
+  <h4>User Grocery List</h4>
+  <button class="btn btn-light btn-sm" onclick="window.location.href='index1.html'">🏠 Home</button>
+</header>
+
+<div class="container" id="userListContainer"></div>
+
+<script>
+const apiUrl = "http://localhost:8080/api/grocery";
+
+// Format date safely
+function formatDate(dateStr){
+  if(!dateStr) return "N/A";
+  // Try to parse backend date string
+  const dateObj = new Date(dateStr);
+  if(isNaN(dateObj.getTime())) return "N/A";
+
+  const day = String(dateObj.getDate()).padStart(2,"0");
+  const month = String(dateObj.getMonth()+1).padStart(2,"0"); // 0-based month
+  const year = dateObj.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+async function loadUserList() {
+  try {
+    const res = await fetch(apiUrl);
+    const items = await res.json();
+    const container = document.getElementById("userListContainer");
+
+    if(items.length === 0){
+      container.innerHTML = `<p class="text-center">No items added yet.</p>`;
+      return;
+    }
+
+    container.innerHTML = items.map(i => `
+      <div class="item-card">
+        <h5 class="text-success">${i.name || "Unnamed Item"}</h5>
+        <p>Quantity: ${i.quantity || 0} ${i.unit || "unit(s)"}</p>
+        <p>Price: ₹${i.price || 0}</p>
+        <p>Source: <span class="item-type">${i.source || "N/A"}</span></p>
+        <p>Date: ${formatDate(i.date)}</p>
+      </div>
+    `).join("");
+
+  } catch(err) {
+    console.error(err);
+    alert("Failed to load items from backend.");
+  }
+}
+
+loadUserList();
+</script>
+</body>
+</html>
