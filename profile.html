@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile - Grocify</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #f5f5f5, #e8f5e9);
+    padding-bottom: 50px;
+  }
+  .navbar-custom {
+    background: #28a745;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  .navbar-custom a {
+    color: white;
+    text-decoration: none;
+  }
+  .container {
+    margin-top: 90px;
+    max-width: 900px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .form-label {
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Grocify - User Profile</a>
+    <div class="d-flex">
+      <button class="btn btn-light me-2" onclick="window.location.href='index1.html'">🏠 Home</button>
+      <button class="btn btn-light" onclick="window.history.back()">⬅ Back</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Complete Your Health Profile</h2>
+  <form id="profileForm">
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" name="fullName" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Age</label>
+      <input type="number" name="age" class="form-control" min="1" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <select name="gender" class="form-select" required>
+        <option value="">Select</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Location (City / Town)</label>
+      <input type="text" name="location" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Health Conditions</label><br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="healthConditions" value="Diabetes">
+        <label class="form-check-label">Diabetes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="healthConditions" value="High Blood Pressure">
+        <label class="form-check-label">High Blood Pressure</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="healthConditions" value="Cholesterol">
+        <label class="form-check-label">Cholesterol</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="healthConditions" value="Thyroid">
+        <label class="form-check-label">Thyroid</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="healthConditions" value="Acidity">
+        <label class="form-check-label">Acidity</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="healthConditions" value="Lactose Intolerance">
+        <label class="form-check-label">Lactose Intolerance</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="healthConditions" value="Obesity">
+        <label class="form-check-label">Obesity</label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Dietary Type</label>
+      <select name="dietaryType" class="form-select" required>
+        <option value="">Select</option>
+        <option value="Vegetarian">Vegetarian</option>
+        <option value="Non-Vegetarian">Non-Vegetarian</option>
+        <option value="Vegan">Vegan</option>
+        <option value="Pescatarian">Pescatarian</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Food Preferences</label><br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="foodPreferences" value="Spicy Food">
+        <label class="form-check-label">Spicy Food</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="foodPreferences" value="Low Sugar">
+        <label class="form-check-label">Low Sugar</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="foodPreferences" value="High Protein">
+        <label class="form-check-label">High Protein</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="foodPreferences" value="Low Carb">
+        <label class="form-check-label">Low Carb</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="foodPreferences" value="Organic Food">
+        <label class="form-check-label">Organic Food</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name="foodPreferences" value="Gluten Free">
+        <label class="form-check-label">Gluten Free</label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Lifestyle Type</label>
+      <select name="lifestyleType" class="form-select" required>
+        <option value="">Select</option>
+        <option value="Sedentary">Sedentary</option>
+        <option value="Active">Active</option>
+        <option value="Moderate">Moderate</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Fitness Goal</label>
+      <select name="fitnessGoal" class="form-select" required>
+        <option value="">Select</option>
+        <option value="Weight Loss">Weight Loss</option>
+        <option value="Healthy Lifestyle">Healthy Lifestyle</option>
+        <option value="Muscle Gain">Muscle Gain</option>
+        <option value="Maintain Weight">Maintain Weight</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Average Sleep (hours)</label>
+      <input type="number" name="sleepHours" class="form-control" min="0" max="24" step="0.1" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Water Intake (liters/day)</label>
+      <input type="number" name="waterIntake" class="form-control" min="0" step="0.1" required>
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">💾 Save Profile</button>
+  </form>
+</div>
+
+<script>
+const form = document.getElementById("profileForm");
+
+// Load saved data
+window.addEventListener("load", () => {
+  const savedProfile = localStorage.getItem("userProfile");
+  if(savedProfile){
+    const data = JSON.parse(savedProfile);
+    form.fullName.value = data.fullName || "";
+    form.age.value = data.age || "";
+    form.gender.value = data.gender || "";
+    form.location.value = data.location || "";
+    form.dietaryType.value = data.dietaryType || "";
+    form.lifestyleType.value = data.lifestyleType || "";
+    form.fitnessGoal.value = data.fitnessGoal || "";
+    form.sleepHours.value = data.sleepHours || "";
+    form.waterIntake.value = data.waterIntake || "";
+
+    // Health conditions
+    if(data.healthConditions){
+      data.healthConditions.forEach(cond=>{
+        const el = form.querySelector(`input[name="healthConditions"][value="${cond}"]`);
+        if(el) el.checked = true;
+      });
+    }
+
+    // Food preferences
+    if(data.foodPreferences){
+      data.foodPreferences.forEach(pref=>{
+        const el = form.querySelector(`input[name="foodPreferences"][value="${pref}"]`);
+        if(el) el.checked = true;
+      });
+    }
+  }
+});
+
+// Save form
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+
+  const healthConditions = formData.getAll("healthConditions");
+  const foodPreferences = formData.getAll("foodPreferences");
+
+  const profileData = {
+    fullName: formData.get("fullName"),
+    age: parseInt(formData.get("age")),
+    gender: formData.get("gender"),
+    location: formData.get("location"),
+    healthConditions,
+    dietaryType: formData.get("dietaryType"),
+    foodPreferences,
+    lifestyleType: formData.get("lifestyleType"),
+    fitnessGoal: formData.get("fitnessGoal"),
+    sleepHours: parseFloat(formData.get("sleepHours")),
+    waterIntake: parseFloat(formData.get("waterIntake"))
+  };
+
+  localStorage.setItem("userProfile", JSON.stringify(profileData));
+  alert("✅ Profile saved successfully!");
+});
+</script>
+
+</body>
+</html>
